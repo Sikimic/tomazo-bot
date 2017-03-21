@@ -19,10 +19,9 @@ app.listen(port, function() {
 app.post('/ooo', function(req, res, next) {
 	var username = req.body.user_name;
 	var botPayoad = {
-		text: 'Oooo, deste momci? Radimo a?',
-		challenge: req.body.challenge
+		'text': 'Oooo, deste momci? Radimo a?',
+		'challenge': req.body.challenge
 	};
-	console.log(req.body);
 
 	if (username !== 'slackbot') {
 		return res.status(200).json(botPayoad);
