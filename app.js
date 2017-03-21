@@ -29,3 +29,18 @@ app.post('/hello', function(req, res, next) {
 	}
 
 });
+
+app.post('/ooo', function(req, res, next) {
+	var username = req.body.user_name;
+	var botPayoad = {
+		text: 'Oooo, deste momci? Radimo a?',
+		challenge: req.body.challenge;
+	};
+
+	if (username !== 'slackbot') {
+		return res.status(200).json(botPayoad);
+	} else {
+		return res.status(200).end();
+	}
+
+});
