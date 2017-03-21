@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', function (req, res)  { 
-	res.status(200).send('Hello World'); 
+	res.status(200).send('Ooooo deste momci? Radimo a?'); 
 });
 
 app.listen(port, function() {
@@ -18,12 +18,14 @@ app.listen(port, function() {
 
 app.post('/ooo', function(req, res, next) {
 	var username = req.body.user_name;
-	var botPayoad = {
-		challenge: req
+	var botPayload = {
+		challenge: req.body.challenge
 	};
 
+	console.log(req);
+
 	if (username !== 'slackbot') {
-		return res.status(200).json(botPayoad);
+		return res.status(200).json(botPayload);
 	} else {
 		return res.status(200).end();
 	}
