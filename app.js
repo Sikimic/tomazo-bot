@@ -22,6 +22,7 @@ app.post('/ooo', function(req, res, next) {
 		text: 'Oooo, deste momci? Radimo a?',
 		challenge: req.body.challenge
 	};
+	console.log(req.body);
 
 	if (username !== 'slackbot') {
 		return res.status(200).json(botPayoad);
