@@ -19,8 +19,7 @@ app.listen(port, function() {
 app.post('/ooo', function(req, res, next) {
 	var username = req.body.user_name;
 	var botPayoad = {
-		'text': 'Oooo, deste momci? Radimo a?',
-		'challenge': req.body.challenge
+		challenge: req.body.challenge
 	};
 
 	if (username !== 'slackbot') {
