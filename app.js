@@ -22,5 +22,5 @@ app.post('/ooo', function(req, res) {
 		challenge: req.body.challenge
 	};
 	console.log(req);
-	return res.send("req");
+	return res.send(botPayload);
 });
