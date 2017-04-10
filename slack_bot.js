@@ -96,12 +96,10 @@ controller.hears(initiateConversationStrings, 'direct_message,direct_mention,men
       var firstSentance = getSentance(firstSentanceStrings);
       var secondSentance = getSentance(secondSentanceStrings);
       convo.ask(firstSentance + " " + secondSentance, function(response, convo) {
-        convo.next();
-      });
-      convo.on('end', function(convo) {
-        bot.reply("Vazi, vazi");
+        convo.say("Vazi, vazi");
         var finalSentance = getSentance(finalSentanceStrings);
-        bot.reply(finalSentance);
+        convo.say(finalSentance);
+        convo.next();
       });
     }
   });
