@@ -91,12 +91,19 @@ controller.hears(initiateConversationStrings, 'direct_message,direct_mention,men
       var firstSentance = firstSentanceStrings[0];
       var secondSentance = secondSentanceStrings[0];
 
-      convo.ask(firstSentance + " " + secondSentance, [{
-        default: true,
-        callback: function(response, convo) {
-            convo.stop();
+      convo.ask(firstSentance + " " + secondSentance, [
+        {
+          pattern: 'da',
+          callback: function(response, convo) {
+            convo.next();
+          }
+        }, {
+          default: true,
+          callback: function(response, convo) {
+              convo.next();
+          }
         }
-      }]);
+      ]);
 
       convo.on('end', function(convo) {
         bot.reply(message, 'Vazi, vazi');
