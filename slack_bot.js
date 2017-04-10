@@ -97,11 +97,11 @@ controller.hears(initiateConversationStrings, 'direct_message,direct_mention,men
       var secondSentance = getSentance(secondSentanceStrings);
       convo.ask(firstSentance + " " + secondSentance, function(response, convo) {
         convo.say("Vazi, vazi");
+        convo.stop();
+      });
+      convo.on('end', function(convo) {
         var finalSentance = getSentance(finalSentanceStrings);
-        convo.next();
-        convo.ask(finalSentance, function(response, convo) {
-          convo.stop();
-        });
+        convo.say(finalSentance);
       });
     }
   });
