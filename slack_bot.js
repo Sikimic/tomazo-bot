@@ -92,15 +92,13 @@ function getSentance (sentance) {
 controller.hears(initiateConversationStrings, 'direct_message,direct_mention,mention', function(bot, message) {
   bot.startConversation(message, function(err, convo) {
     if (!err) {
-      // convo.task.timeLimit = 5000;
       convo.say('Ooooo');
       var firstSentance = getSentance(firstSentanceStrings);
       var secondSentance = getSentance(secondSentanceStrings);
       convo.ask(firstSentance + " " + secondSentance, function(response, convo) {
         convo.say("Vazi, vazi");
-        convo.next();
         var finalSentance = getSentance(finalSentanceStrings);
-        convo.say(finalSentance);
+        // convo.say(finalSentance);
         convo.next();
       });
     }
