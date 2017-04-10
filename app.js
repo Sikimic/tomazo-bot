@@ -21,7 +21,6 @@ app.post('/ooo', function(req, res, next) {
 	var botPayload = {
 		challenge: req.body.challenge
 	};
-
 	console.log(req);
 
 	if (username !== 'slackbot') {
