@@ -22,5 +22,5 @@ app.post('/ooo', function(req, res) {
 		challenge: req.body.challenge
 	};
 	console.log(req);
-	return res.status(200).send(req.params.challenge);
+	return res.send(req);
 });
