@@ -8,6 +8,8 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 
+app.use(bodyParser.json());
+
 app.get('/', function (req, res)  { 
 	res.status(200).send('Ooooo deste momci? Radimo a?'); 
 });
