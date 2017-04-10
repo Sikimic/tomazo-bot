@@ -16,17 +16,11 @@ app.listen(port, function() {
 	console.log('listening on port ' + port);
 });
 
-app.post('/ooo', function(req, res, next) {
+app.post('/ooo', function(req, res) {
 	var username = req.body.user_name;
 	var botPayload = {
 		challenge: req.body.challenge
 	};
 	console.log(req);
-
-	if (username !== 'slackbot') {
-		return res.status(200).json(botPayload);
-	} else {
-		return res.status(200).end();
-	}
-
+	return res.status(200).send(req.params.challenge);
 });
