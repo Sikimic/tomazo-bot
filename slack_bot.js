@@ -90,9 +90,6 @@ function start_rtm() {
   });
 }
 
-start_rtm();
-controller.on('rtm_close', start_rtm());
-
 var initiateConversationStrings = ['des', 'de si', 'oo', 'ooo', 'oooo', 'ooooo', 'desi', 'alo', 'e', 'ee', 'eee'];
 var firstSentanceStrings = ['Deste momci?', 'Svi na okupu a?', 'Deste smekeri?'];
 var secondSentanceStrings = ['Radimo a?', 'Tu toma a?', 'Tu sofija a?', 'Tu milos a?', 'Tu igor a?'];
@@ -118,6 +115,10 @@ controller.hears(initiateConversationStrings, 'direct_message,direct_mention,men
       });
     }
   });
+});
+
+controller.on('rtm_close', function(bot, err) {
+  start_rtm();
 });
 
 controller.hears(['hello', 'hi'], 'direct_message,direct_mention,mention', function(bot, message) {
