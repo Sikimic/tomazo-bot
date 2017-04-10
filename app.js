@@ -19,6 +19,7 @@ app.listen(port, function() {
 });
 
 app.post('/ooo', function(req, res) {
+	req.setRequestHeader('Content-Type', 'application/json');
 	var username = req.body.user_name;
 	var botPayload = {
 		challenge: "req.body.challenge"	
