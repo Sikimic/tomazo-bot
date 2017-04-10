@@ -19,8 +19,8 @@ app.listen(port, function() {
 app.post('/ooo', function(req, res) {
 	var username = req.body.user_name;
 	var botPayload = {
-		challenge: "req.body.challenge"
+		challenge: "req.body.challenge"	
 	};
 	console.log(req);
-	return res.send(botPayload);
+	return res.send(req);
 });
