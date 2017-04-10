@@ -96,11 +96,15 @@ controller.hears(initiateConversationStrings, 'direct_message,direct_mention,men
       var firstSentance = getSentance(firstSentanceStrings);
       var secondSentance = getSentance(secondSentanceStrings);
       convo.ask(firstSentance + " " + secondSentance, function(response, convo) {
-        convo.task.timeout = 2000;
-        convo.say("Vazi, vazi");
-        var finalSentance = getSentance(finalSentanceStrings);
-        convo.say(finalSentance);
-        convo.next();
+        convo.setTimeout(2000);
+        convo.onTimeout(function(convo) {
+          convo.say('Oh no! The time limit has expired.');
+          convo.next();
+        });
+        // convo.say("Vazi, vazi");
+        // var finalSentance = getSentance(finalSentanceStrings);
+        // convo.say(finalSentance);
+        // convo.next();
       });
     }
   });
