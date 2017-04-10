@@ -83,7 +83,7 @@ var bot = controller.spawn({
 var initiateConversationStrings = ['des', 'de si', 'oo', 'ooo', 'oooo', 'ooooo', 'desi', 'alo', 'e', 'ee', 'eee'];
 var firstSentanceStrings = ['Deste momci?', 'Svi na okupu a?', 'Deste smekeri?'];
 var secondSentanceStrings = ['Radimo a?', 'Tu toma a?', 'Tu sofija a?', 'Tu milos a?', 'Tu igor a?'];
-var finalSentanceStrings = ['Tu sam ja', 'Idem to tome nesto, sad cu ja'];
+var finalSentanceStrings = ['Tu sam ja', 'Idem do tome nesto, sad cu ja'];
 
 function getSentance (sentance) {
   return sentance[ Math.floor(Math.random() * sentance.length) ];
@@ -96,6 +96,7 @@ controller.hears(initiateConversationStrings, 'direct_message,direct_mention,men
       var firstSentance = getSentance(firstSentanceStrings);
       var secondSentance = getSentance(secondSentanceStrings);
       convo.ask(firstSentance + " " + secondSentance, function(response, convo) {
+        convo.task.timeout = 2000;
         convo.say("Vazi, vazi");
         var finalSentance = getSentance(finalSentanceStrings);
         convo.say(finalSentance);
