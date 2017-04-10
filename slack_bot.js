@@ -94,12 +94,14 @@ controller.hears(initiateConversationStrings, 'direct_message,direct_mention,men
       var secondSentance = secondSentanceStrings[ Math.floor(Math.random() * secondSentanceStrings.length) ];
 
       convo.ask(firstSentance + " " + secondSentance, function(response, convo) {
-        bot.say("Vazi, vazi");
-        var finalSentance = finalSentanceStrings[ Math.floor(Math.random() * finalSentanceStrings.length) ];
-        bot.say(finalSentance);
         convo.next();
       });
     }
+  });
+  convo.on('end', function(convo) {
+    bot.say("Vazi, vazi");
+    var finalSentance = finalSentanceStrings[ Math.floor(Math.random() * finalSentanceStrings.length) ];
+    bot.say(finalSentance);
   });
 });
 
