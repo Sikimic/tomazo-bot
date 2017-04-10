@@ -85,13 +85,17 @@ var firstSentanceStrings = ['Deste momci?', 'Svi na okupu a?', 'Deste smekeri?']
 var secondSentanceStrings = ['Radimo a?', 'Tu toma a?', 'Tu sofija a?', 'Tu milos a?', 'Tu igor a?'];
 var finalSentanceStrings = ['Tu sam ja', 'Idem to tome nesto, sad cu ja'];
 
+function getSentance (sentance) {
+  return sentance[ Math.floor(Math.random() * sentance.length) ];
+}
+
 controller.hears(initiateConversationStrings, 'direct_message,direct_mention,mention', function(bot, message) {
   bot.startConversation(message, function(err, convo) {
     if (!err) {
       convo.say('Ooooo');
 
-      var firstSentance = firstSentanceStrings[ Math.floor(Math.random() * firstSentanceStrings.length) ];
-      var secondSentance = secondSentanceStrings[ Math.floor(Math.random() * secondSentanceStrings.length) ];
+      var firstSentance = getSentance(firstSentanceStrings);
+      var secondSentance = getSentance(secondSentanceStrings);
 
       convo.ask(firstSentance + " " + secondSentance, function(response, convo) {
         convo.next();
@@ -99,9 +103,9 @@ controller.hears(initiateConversationStrings, 'direct_message,direct_mention,men
     }
   });
   convo.on('end', function(convo) {
-    bot.say("Vazi, vazi");
-    var finalSentance = finalSentanceStrings[ Math.floor(Math.random() * finalSentanceStrings.length) ];
-    bot.say(finalSentance);
+    bot.reply("Vazi, vazi");
+    var finalSentance = getSentance(finalSentanceStrings);
+    bot.reply(finalSentance);
   });
 });
 
