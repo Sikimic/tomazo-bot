@@ -93,19 +93,17 @@ controller.hears(initiateConversationStrings, 'direct_message,direct_mention,men
   bot.startConversation(message, function(err, convo) {
     if (!err) {
       convo.say('Ooooo');
-
       var firstSentance = getSentance(firstSentanceStrings);
       var secondSentance = getSentance(secondSentanceStrings);
-
       convo.ask(firstSentance + " " + secondSentance, function(response, convo) {
         convo.next();
       });
+      convo.on('end', function(convo) {
+        bot.reply("Vazi, vazi");
+        var finalSentance = getSentance(finalSentanceStrings);
+        bot.reply(finalSentance);
+      });
     }
-  });
-  convo.on('end', function(convo) {
-    bot.reply("Vazi, vazi");
-    var finalSentance = getSentance(finalSentanceStrings);
-    bot.reply(finalSentance);
   });
 });
 
