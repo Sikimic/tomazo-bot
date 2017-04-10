@@ -80,6 +80,13 @@ var bot = controller.spawn({
     token: process.env.token
 }).startRTM();
 
+var initialPattern = {'des', 'de si', 'oo', 'ooo', 'oooo', 'ooooo', 'desi', 'alo', 'e', 'ee', 'eee'};
+
+controller.hears([initialPattern], 'direct_message,direct_mention,mention', function(bot, message) {
+  bot.reply(message, 'Ooooo, deste momci? Radimo a?');
+});
+
+
 controller.hears(['hello', 'hi'], 'direct_message,direct_mention,mention', function(bot, message) {
 
     bot.api.reactions.add({
