@@ -80,10 +80,39 @@ var bot = controller.spawn({
     token: process.env.token
 }).startRTM();
 
-var initialPattern = ['des', 'de si', 'oo', 'ooo', 'oooo', 'ooooo', 'desi', 'alo', 'e', 'ee', 'eee'];
+var initiateConversationStrings = ['des', 'de si', 'oo', 'ooo', 'oooo', 'ooooo', 'desi', 'alo', 'e', 'ee', 'eee'];
+var firstSentanceStrings = ['deste momci?', 'svi na okupu a?', 'deste smekeri?'];
+var secondSentanceStrings = ['Radimo a?', 'Tu toma a?', 'Tu sofija a?', 'Tu milos a?', 'Tu igor a?'];
 
-controller.hears(initialPattern, 'direct_message,direct_mention,mention', function(bot, message) {
-  bot.reply(message, 'Ooooo, deste momci? Radimo a?');
+controller.hears(initiateConversationStrings, 'direct_message,direct_mention,mention', function(bot, message) {
+  bot.startConversation(message, function(err, convo) {
+    if (!err) {
+      convo.say('Ooooo');
+      var firstSentance = firstSentanceStrings[0];
+      var secondSentance = secondSentanceStrings[0];
+
+      convo.ask(firstSentance + " " + secondSentance, [
+          {
+              pattern: 'evo',
+              callback: function(response, convo) {
+                  // since no further messages are queued after this,
+                  // the conversation will end naturally with status == 'completed'
+                  convo.next();
+              }
+          },
+          {
+              default: true,
+              callback: function(response, convo) {
+                  convo.next();
+              }
+          }
+      ]);
+
+        convo.on('end', function(convo) {
+          bot.reply(message, 'OK, nevermind!');
+        });
+    }
+  });
 });
 
 
