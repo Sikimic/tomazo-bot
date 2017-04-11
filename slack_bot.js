@@ -90,7 +90,7 @@ function start_rtm() {
   });
 }
 
-var initiateConversationStrings = ['des', 'de si', 'oo', 'ooo', 'oooo', 'ooooo', 'desi', 'alo', 'e', 'ee', 'eee'];
+var initiateConversationStrings = ['des', '?', 'brate', 'lud', 'oo', 'ooo', 'oooo', 'ooooo', 'desi', 'alo', 'e', 'ee', 'eee'];
 var firstSentanceStrings = ['Deste momci?', 'Svi na okupu a?', 'Deste smekeri?'];
 var secondSentanceStrings = ['Radimo a?', 'Tu toma a?', 'Tu ognjen a?', 'Tu sofija a?', 'Tu milos a?', 'Tu igor a?'];
 var finalSentanceStrings = ['Tu sam ja', 'Idem do tome nesto, sad cu ja', 'Uzecu ti kaficu, ovaj...'];
@@ -106,6 +106,13 @@ var tomazo = {
   min: 30,
   visited: false
 }
+
+//group channgel G4WQ7GDED
+
+// const context = {
+//   user: config.owner,
+//   channel: message.channel
+// }
 
 function tomazoVizit() {
   var date = new Date();
@@ -149,7 +156,7 @@ controller.hears(initiateConversationStrings, 'direct_message,direct_mention,men
       });
       convo.on('end', function(convo) {
         var finalSentance = getSentance(finalSentanceStrings);
-        bot.reply(message, finalSentance);
+        bot.reply(message, message);
       });
     }
   });
