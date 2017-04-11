@@ -111,7 +111,7 @@ controller.hears(initiateConversationStrings, 'direct_message,direct_mention,men
       var secondSentance = getSentance(secondSentanceStrings);
       convo.ask(firstSentance + " " + secondSentance, function(response, convo) {
         convo.ask("Vazi, vazi", function(response, convo) {
-          convo.next();
+          convo.stop();
         });
         convo.next();
       });
