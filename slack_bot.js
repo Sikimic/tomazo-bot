@@ -107,14 +107,15 @@ var tomazo = {
   visited: false
 }
 
-const context = { type: 'message',
-   channel: 'G4WQ7GDED',
-   user: 'U06PA3BE2',
-   text: 'des',
-   ts: '1491930119.972782',
-   source_team: 'T03MGN65W',
-   team: 'T03MGN65W',
-   event: 'direct_mention'
+const context = { 
+  type: 'message',
+  channel: 'G4WQ7GDED',
+  user: 'U06PA3BE2',
+  text: 'des',
+  ts: '1491930119.972782',
+  source_team: 'T03MGN65W',
+  team: 'T03MGN65W',
+  event: 'direct_mention'
 }
 
 function tomazoVizit() {
@@ -146,8 +147,7 @@ function tomazoVizit() {
           });
           convo.on('end', function(convo) {
             var finalSentance = getSentance(finalSentanceStrings);
-            bot.reply(message, finalSentance);
-            console.log(message);
+            bot.reply(context, finalSentance);
           });
         }
       });
