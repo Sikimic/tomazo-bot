@@ -80,6 +80,16 @@ var bot = controller.spawn({
     token: process.env.token
 }).startRTM();
 
+function start_rtm() {
+  bot.startRTM(function(err,bot,payload) {
+    if (err) {
+      console.log('Failed to start RTM');
+      return setTimeout(start_rtm, 60000);
+    }
+      console.log("RTM started!");
+  });
+}
+
 var initiateConversationStrings = ['des', 'de si', 'oo', 'ooo', 'oooo', 'ooooo', 'desi', 'alo', 'e', 'ee', 'eee'];
 var firstSentanceStrings = ['Deste momci?', 'Svi na okupu a?', 'Deste smekeri?'];
 var secondSentanceStrings = ['Radimo a?', 'Tu toma a?', 'Tu sofija a?', 'Tu milos a?', 'Tu igor a?'];
@@ -88,6 +98,10 @@ var finalSentanceStrings = ['Tu sam ja', 'Idem do tome nesto, sad cu ja'];
 function getSentance (sentance) {
   return sentance[ Math.floor(Math.random() * sentance.length) ];
 }
+
+controller.on('rtm_close', function(bot, err) {
+  start_rtm();
+});
 
 controller.hears(initiateConversationStrings, 'direct_message,direct_mention,mention', function(bot, message) {
   bot.startConversation(message, function(err, convo) {
