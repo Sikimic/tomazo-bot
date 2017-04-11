@@ -77,7 +77,8 @@ var controller = Botkit.slackbot({
 });
 
 var bot = controller.spawn({
-    token: process.env.token
+    token: process.env.token,
+    retry: 5000
 }).startRTM();
 
 function start_rtm() {
