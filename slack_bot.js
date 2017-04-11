@@ -84,7 +84,7 @@ function start_rtm() {
   bot.startRTM(function(err,bot,payload) {
   if (err) {
     console.log('Failed to start RTM')
-    return setTimeout(start_rtm, 30 * 1000);
+    return setTimeout(start_rtm, 30000);
   }
     console.log("RTM started!");
   });
