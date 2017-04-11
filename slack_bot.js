@@ -73,7 +73,7 @@ var Botkit = require('./lib/Botkit.js');
 var os = require('os');
 
 var controller = Botkit.slackbot({
-    debug: true,
+    debug: false,
 });
 
 var bot = controller.spawn({
@@ -156,7 +156,8 @@ controller.hears(initiateConversationStrings, 'direct_message,direct_mention,men
       });
       convo.on('end', function(convo) {
         var finalSentance = getSentance(finalSentanceStrings);
-        bot.reply(message, message);
+        bot.reply(message, finalSentance);
+        console.log(message);
       });
     }
   });
