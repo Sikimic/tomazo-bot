@@ -92,11 +92,40 @@ function start_rtm() {
 
 var initiateConversationStrings = ['des', 'de si', 'oo', 'ooo', 'oooo', 'ooooo', 'desi', 'alo', 'e', 'ee', 'eee'];
 var firstSentanceStrings = ['Deste momci?', 'Svi na okupu a?', 'Deste smekeri?'];
-var secondSentanceStrings = ['Radimo a?', 'Tu toma a?', 'Tu sofija a?', 'Tu milos a?', 'Tu igor a?'];
-var finalSentanceStrings = ['Tu sam ja', 'Idem do tome nesto, sad cu ja'];
+var secondSentanceStrings = ['Radimo a?', 'Tu toma a?', 'Tu ognjen a?', 'Tu sofija a?', 'Tu milos a?', 'Tu igor a?'];
+var finalSentanceStrings = ['Tu sam ja', 'Idem do tome nesto, sad cu ja', 'Uzecu ti kaficu, ovaj...'];
 
 function getSentance (sentance) {
   return sentance[ Math.floor(Math.random() * sentance.length) ];
+}
+
+var tomazoVizit = {
+  max_hour: 17,
+  min_hour: 13,
+  hour: 14,
+  min: 30,
+  visited: false
+};
+function tomazoVizit() {
+  var date = new Date();
+  var hour = date.getHours();
+  var min  = date.getMinutes();
+  if (hour == 12) tomazoVizit.visited = false;
+  //current time
+  ctime = hour * 60 + min;
+  //tomazo time
+  ttime = tomazoVizit.hour * 60 + tomazoVizit.min;
+
+  if ( Math.abs(ttime - ctime) < 15 && !tomazoVizit.visited) {
+    if ( !(Math.random() * 15) ) {
+      tomazoVizit.visited = true;
+      tomazoVizit.hour = hour;
+      tomazoVizit.min = min;
+      //bot start conversation
+    }
+  }   
+
+  setTimeout(tomazoVizit, 60000);
 }
 
 controller.on('rtm_close', function(bot, err) {
