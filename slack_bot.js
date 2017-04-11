@@ -99,34 +99,37 @@ function getSentance (sentance) {
   return sentance[ Math.floor(Math.random() * sentance.length) ];
 }
 
-var tomazoVizit = {
+var tomazo = {
   max_hour: 17,
   min_hour: 13,
   hour: 14,
   min: 30,
   visited: false
-};
+}
+
 function tomazoVizit() {
   var date = new Date();
   var hour = date.getHours();
   var min  = date.getMinutes();
-  if (hour == 12) tomazoVizit.visited = false;
+  if (hour == 12) tomazo.visited = false;
   //current time
   ctime = hour * 60 + min;
   //tomazo time
-  ttime = tomazoVizit.hour * 60 + tomazoVizit.min;
+  ttime = tomazo.hour * 60 + tomazo.min;
 
-  if ( Math.abs(ttime - ctime) < 15 && !tomazoVizit.visited) {
+  if ( Math.abs(ttime - ctime) < 15 && !tomazo.visited) {
     if ( !(Math.random() * 15) ) {
-      tomazoVizit.visited = true;
-      tomazoVizit.hour = hour;
-      tomazoVizit.min = min;
+      tomazo.visited = true;
+      tomazo.hour = hour;
+      tomazo.min = min;
       //bot start conversation
     }
   }   
 
   setTimeout(tomazoVizit, 60000);
 }
+
+tomazoVizit();
 
 controller.on('rtm_close', function(bot, err) {
   start_rtm();
