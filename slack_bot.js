@@ -77,19 +77,8 @@ var controller = Botkit.slackbot({
 });
 
 var bot = controller.spawn({
-    token: process.env.token,
-    retry: 5000
+    token: process.env.token
 }).startRTM();
-
-function start_rtm() {
-  bot.startRTM(function(err,bot,payload) {
-  if (err) {
-    console.log('Failed to start RTM')
-    return setTimeout(start_rtm, 30000);
-  }
-    console.log("RTM started!");
-  });
-}
 
 var initiateConversationStrings = ['des', 'de si', 'oo', 'ooo', 'oooo', 'ooooo', 'desi', 'alo', 'e', 'ee', 'eee'];
 var firstSentanceStrings = ['Deste momci?', 'Svi na okupu a?', 'Deste smekeri?'];
@@ -118,9 +107,6 @@ controller.hears(initiateConversationStrings, 'direct_message,direct_mention,men
   });
 });
 
-controller.on('rtm_close', function(bot, err) {
-  start_rtm();
-});
 
 controller.hears(['hello', 'hi'], 'direct_message,direct_mention,mention', function(bot, message) {
 
