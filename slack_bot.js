@@ -102,7 +102,7 @@ function getSentance (sentance) {
 var tomazo = {
   max_hour: 17,
   min_hour: 13,
-  hour: 14,
+  hour: 15,
   min: 30,
   visited: false
 }
@@ -129,7 +129,7 @@ function tomazoVizit() {
   ttime = tomazo.hour * 60 + tomazo.min;
 
   if ( Math.abs(ttime - ctime) < 15 && !tomazo.visited) {
-    if ( !(Math.random() * 15) ) {
+    if ( !Math.floor((Math.random() * 15)) ) {
       tomazo.visited = true;
       tomazo.hour = hour;
       tomazo.min = min;
