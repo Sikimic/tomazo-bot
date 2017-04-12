@@ -129,7 +129,7 @@ function tomazoVizit() {
   ttime = tomazo.hour * 60 + tomazo.min;
 
   if ( Math.abs(ttime - ctime) < 15 && !tomazo.visited) {
-    if ( !Math.floor((Math.random() * 15)) ) {
+    if ( Math.floor((Math.random() * 15)) == 0 ) {
       tomazo.visited = true;
       tomazo.hour = hour;
       tomazo.min = min;
