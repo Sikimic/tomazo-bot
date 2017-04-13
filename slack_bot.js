@@ -102,7 +102,7 @@ function getSentance (sentance) {
 var tomazo = {
   max_hour: 17,
   min_hour: 13,
-  hour: 15,
+  hour: 13,
   min: 30,
   visited: false
 }
