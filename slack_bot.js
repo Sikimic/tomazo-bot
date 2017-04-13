@@ -122,7 +122,7 @@ function tomazoVizit() {
   var date = new Date();
   var hour = date.getHours();
   var min  = date.getMinutes();
-  if (hour == 12) tomazo.visited = false;
+  if (hour == 10) tomazo.visited = false;
   //current time
   ctime = hour * 60 + min;
   //tomazo time
