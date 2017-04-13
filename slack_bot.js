@@ -100,8 +100,8 @@ function getSentance (sentance) {
 }
 
 var tomazo = {
-  max_hour: 17,
-  min_hour: 13,
+  max_hour: 15,
+  min_hour: 11,
   hour: 13,
   min: 30,
   visited: false
@@ -131,7 +131,7 @@ function tomazoVizit() {
   if ( Math.abs(ttime - ctime) < 15 && !tomazo.visited) {
     if ( Math.floor((Math.random() * 15)) == 0 ) {
       tomazo.visited = true;
-      tomazo.hour = hour;
+      tomazo.hour = (hour > tomazo.min_hour && hour < tomazo.max_hour) ? hour : tomazo.hour;
       tomazo.min = min;
       //bot start conversation
       bot.startConversation(context, function(err, convo) {
