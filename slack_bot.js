@@ -91,7 +91,7 @@ function start_rtm() {
 }
 
 var initiateConversationStrings = ['des', 'brate', 'lud', 'oo', 'ooo', 'oooo', 'ooooo', 'desi', 'alo', 'e', 'ee', 'eee'];
-var firstSentanceStrings = ['Deste momci?', 'Svi na okupu a?', 'Deste smekeri?'];
+var firstSentanceStrings = ['Deste momci?', 'Svi na okupu a?', 'Deste smekeri?', 'Vidi.. Imam neku kosulju za tebe'];
 var secondSentanceStrings = ['Radimo a?', 'Tu toma a?', 'Tu ognjen a?', 'Tu sofija a?', 'Tu milos a?', 'Tu igor a?'];
 var finalSentanceStrings = ['Tu sam ja', 'Idem do tome nesto, sad cu ja', 'Uzecu ti kaficu, ovaj...'];
 
