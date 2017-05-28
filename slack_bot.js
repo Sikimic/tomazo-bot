@@ -163,7 +163,7 @@ tomazoVizit();
 //Code for congradulating birthdays
 tomazoCongradulateBirthday();
 
-var customBirthday {
+var customBirthday = {
   hour: 13,
   min: 55,
   visited: false
