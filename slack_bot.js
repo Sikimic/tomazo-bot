@@ -165,7 +165,7 @@ tomazoCongradulateBirthday();
 
 var customBirthday {
   hour: 13,
-  min: 44,
+  min: 47,
   visited: false
 }
 
