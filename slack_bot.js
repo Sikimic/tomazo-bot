@@ -189,7 +189,7 @@ function tomazoCongradulateBirthday() {
   //tomazo time
   var ttime = customBirthday.hour * 60 + customBirthday.min;
   if ( Math.abs(ttime - ctime) == 0 && !customBirthday.visited) {
-    bot.startConversation(customBirthdayChannel, function(err, convo) {
+    bot.startConversation(context, function(err, convo) {
         if (!err) {
           convo.say('Ooooo, desi igore..');
           var firstSentance = "Srecan rodjendan a?";
