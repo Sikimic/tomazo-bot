@@ -164,7 +164,7 @@ tomazoVizit();
 
 var customBirthday = {
   hour: 14,
-  min: 2,
+  min: 6,
   visited: false
 }
 
