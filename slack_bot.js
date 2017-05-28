@@ -91,7 +91,7 @@ function start_rtm() {
 }
 
 var initiateConversationStrings = ['des', 'brate', 'lud', 'oo', 'ooo', 'oooo', 'ooooo', 'desi', 'alo', 'e', 'ee', 'eee'];
-var firstSentanceStrings = ['Deste momci?', 'Svi na okupu a?', 'Deste smekeri?', 'Vidi.. Imam neku kosulju za tebe'];
+var firstSentanceStrings = ['Deste momci?', 'Svi na okupu a?', 'Deste smekeri?', 'Vidi.. Imam neku kosulju za tebe..'];
 var secondSentanceStrings = ['Radimo a?', 'Tu toma a?', 'Tu ognjen a?', 'Tu sofija a?', 'Tu milos a?', 'Tu igor a?'];
 var finalSentanceStrings = ['Tu sam ja', 'Idem do tome nesto, sad cu ja', 'Uzecu ti kaficu, ovaj...'];
 
@@ -158,6 +158,57 @@ function tomazoVizit() {
 }
 
 tomazoVizit();
+
+
+//Code for congradulating birthdays
+// tomazoCongradulateBirthday();
+
+// var customBirthday {
+//   hour: 22,
+//   min: 3,
+//   visited: false
+// }
+
+// const customBirthdayChannel = { 
+//   type: 'message',
+//   channel: 'G4WQ7GDED',
+//   user: 'U06PA3BE2',
+//   text: 'des',
+//   ts: '1491930119.972782',
+//   source_team: 'T03MGN65W',
+//   team: 'T03MGN65W',
+//   event: 'direct_mention'
+// }
+
+// function tomazoCongradulateBirthday() {
+//   var date = new Date();
+//   var hour = date.getHours();
+//   var min  = date.getMinutes();
+//   //current time
+//   var ctime = hour * 60 + min;
+//   //tomazo time
+//   var ttime = customBirthday.hour * 60 + customBirthday.min;
+//   if ( Math.abs(ttime - ctime) == 0 && !customBirthday.visited) {
+//     bot.startConversation(customBirthdayChannel, function(err, convo) {
+//         if (!err) {
+//           convo.say('Ooooo');
+//           var firstSentance = getSentance(firstSentanceStrings);
+//           var secondSentance = getSentance(secondSentanceStrings);
+//           convo.ask(firstSentance + " " + secondSentance, function(response, convo) {
+//             convo.ask("Vazi, vazi", function(response, convo) {
+//               convo.stop();
+//             });
+//             convo.next();
+//           });
+//           convo.on('end', function(convo) {
+//             var finalSentance = getSentance(finalSentanceStrings);
+//             bot.reply(context, finalSentance);
+//           });
+//         }
+//       });
+//   }
+//   setTimeout(tomazoCongradulateBirthday, 59000);
+// };
 
 controller.on('rtm_close', function(bot, err) {
   start_rtm();
