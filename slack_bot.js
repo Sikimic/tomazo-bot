@@ -183,6 +183,7 @@ function tomazoCongradulateBirthday() {
   var date = new Date();
   var hour = date.getHours();
   var min  = date.getMinutes();
+  
   //current time
   var ctime = hour * 60 + min;
   //tomazo time
