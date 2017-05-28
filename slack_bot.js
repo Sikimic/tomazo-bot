@@ -163,8 +163,8 @@ tomazoVizit();
 //Code for congradulating birthdays
 
 var customBirthday = {
-  hour: 13,
-  min: 55,
+  hour: 14,
+  min: 2,
   visited: false
 }
 
@@ -190,17 +190,17 @@ function tomazoCongradulateBirthday() {
   if ( Math.abs(ttime - ctime) == 0 && !customBirthday.visited) {
     bot.startConversation(customBirthdayChannel, function(err, convo) {
         if (!err) {
-          convo.say('Ooooo');
-          var firstSentance = "Desi igore, srecan rodjendan a?";
-          var secondSentance = "";
+          convo.say('Ooooo, desi igore..');
+          var firstSentance = "Srecan rodjendan a?";
+          var secondSentance = "Rekli su mi lale i sika da ti cestitam";
           convo.ask(firstSentance + " " + secondSentance, function(response, convo) {
-            convo.ask("Vazi, vazi", function(response, convo) {
+            convo.ask("Vazi, vazi, nego.. je l tu toma a?", function(response, convo) {
               convo.stop();
             });
             convo.next();
           });
           convo.on('end', function(convo) {
-            var finalSentance = getSentance(finalSentanceStrings);
+            var finalSentance = "Vazi, vazi.. tu sam ja sutra, bicu kod ortaka";
             bot.reply(context, finalSentance);
           });
         }
