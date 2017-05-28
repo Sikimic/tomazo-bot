@@ -134,11 +134,66 @@ function tomazoVizit() {
       tomazo.hour = (hour > tomazo.min_hour && hour < tomazo.max_hour) ? hour : tomazo.hour;
       tomazo.min = min;
       //bot start conversation
-      bot.startConversation(context, function(err, convo) {
+      // bot.startConversation(context, function(err, convo) {
+      //   if (!err) {
+      //     convo.say('Ooooo');
+      //     var firstSentance = getSentance(firstSentanceStrings);
+      //     var secondSentance = getSentance(secondSentanceStrings);
+      //     convo.ask(firstSentance + " " + secondSentance, function(response, convo) {
+      //       convo.ask("Vazi, vazi", function(response, convo) {
+      //         convo.stop();
+      //       });
+      //       convo.next();
+      //     });
+      //     convo.on('end', function(convo) {
+      //       var finalSentance = getSentance(finalSentanceStrings);
+      //       bot.reply(context, finalSentance);
+      //     });
+      //   }
+      // });
+    }
+  }   
+
+  setTimeout(tomazoVizit, 60000);
+}
+
+tomazoVizit();
+
+
+//Code for congradulating birthdays
+tomazoCongradulateBirthday();
+
+var customBirthday {
+  hour: 13,
+  min: 44,
+  visited: false
+}
+
+const customBirthdayChannel = { 
+  type: 'message',
+  channel: 'D4MEYHGAX',
+  user: 'U06PA3BE2',
+  text: 'des',
+  ts: '1495978683.592423',
+  source_team: 'T03MGN65W',
+  team: 'T03MGN65W',
+  event: 'direct_mention'
+}
+
+function tomazoCongradulateBirthday() {
+  var date = new Date();
+  var hour = date.getHours();
+  var min  = date.getMinutes();
+  //current time
+  var ctime = hour * 60 + min;
+  //tomazo time
+  var ttime = customBirthday.hour * 60 + customBirthday.min;
+  if ( Math.abs(ttime - ctime) == 0 && !customBirthday.visited) {
+    bot.startConversation(customBirthdayChannel, function(err, convo) {
         if (!err) {
           convo.say('Ooooo');
-          var firstSentance = getSentance(firstSentanceStrings);
-          var secondSentance = getSentance(secondSentanceStrings);
+          var firstSentance = "Desi igore, srecan rodjendan a?";
+          var secondSentance = "";
           convo.ask(firstSentance + " " + secondSentance, function(response, convo) {
             convo.ask("Vazi, vazi", function(response, convo) {
               convo.stop();
@@ -151,64 +206,9 @@ function tomazoVizit() {
           });
         }
       });
-    }
-  }   
-
-  setTimeout(tomazoVizit, 60000);
-}
-
-tomazoVizit();
-
-
-//Code for congradulating birthdays
-// tomazoCongradulateBirthday();
-
-// var customBirthday {
-//   hour: 22,
-//   min: 3,
-//   visited: false
-// }
-
-// const customBirthdayChannel = { 
-//   type: 'message',
-//   channel: 'G4WQ7GDED',
-//   user: 'U06PA3BE2',
-//   text: 'des',
-//   ts: '1491930119.972782',
-//   source_team: 'T03MGN65W',
-//   team: 'T03MGN65W',
-//   event: 'direct_mention'
-// }
-
-// function tomazoCongradulateBirthday() {
-//   var date = new Date();
-//   var hour = date.getHours();
-//   var min  = date.getMinutes();
-//   //current time
-//   var ctime = hour * 60 + min;
-//   //tomazo time
-//   var ttime = customBirthday.hour * 60 + customBirthday.min;
-//   if ( Math.abs(ttime - ctime) == 0 && !customBirthday.visited) {
-//     bot.startConversation(customBirthdayChannel, function(err, convo) {
-//         if (!err) {
-//           convo.say('Ooooo');
-//           var firstSentance = getSentance(firstSentanceStrings);
-//           var secondSentance = getSentance(secondSentanceStrings);
-//           convo.ask(firstSentance + " " + secondSentance, function(response, convo) {
-//             convo.ask("Vazi, vazi", function(response, convo) {
-//               convo.stop();
-//             });
-//             convo.next();
-//           });
-//           convo.on('end', function(convo) {
-//             var finalSentance = getSentance(finalSentanceStrings);
-//             bot.reply(context, finalSentance);
-//           });
-//         }
-//       });
-//   }
-//   setTimeout(tomazoCongradulateBirthday, 59000);
-// };
+  }
+  setTimeout(tomazoCongradulateBirthday, 59000);
+};
 
 controller.on('rtm_close', function(bot, err) {
   start_rtm();
