@@ -161,7 +161,6 @@ tomazoVizit();
 
 
 //Code for congradulating birthdays
-tomazoCongradulateBirthday();
 
 var customBirthday = {
   hour: 13,
@@ -209,6 +208,8 @@ function tomazoCongradulateBirthday() {
   }
   setTimeout(tomazoCongradulateBirthday, 59000);
 };
+
+tomazoCongradulateBirthday();
 
 controller.on('rtm_close', function(bot, err) {
   start_rtm();
