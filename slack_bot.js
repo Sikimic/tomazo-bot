@@ -206,7 +206,7 @@ function tomazoCongradulateBirthday() {
         }
       });
   }
-  setTimeout(tomazoCongradulateBirthday, 59000);
+  setTimeout(tomazoCongradulateBirthday, 59200);
 };
 
 tomazoCongradulateBirthday();
