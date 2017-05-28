@@ -163,7 +163,7 @@ tomazoVizit();
 //Code for congradulating birthdays
 
 var customBirthday = {
-  hour: 14,
+  hour: 22,
   min: 6,
   visited: false
 }
@@ -183,7 +183,7 @@ function tomazoCongradulateBirthday() {
   var date = new Date();
   var hour = date.getHours();
   var min  = date.getMinutes();
-  
+
   //current time
   var ctime = hour * 60 + min;
   //tomazo time
