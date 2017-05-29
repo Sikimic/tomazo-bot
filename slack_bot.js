@@ -133,24 +133,24 @@ function tomazoVizit() {
       tomazo.visited = true;
       tomazo.hour = (hour > tomazo.min_hour && hour < tomazo.max_hour) ? hour : tomazo.hour;
       tomazo.min = min;
-      //bot start conversation
-      // bot.startConversation(context, function(err, convo) {
-      //   if (!err) {
-      //     convo.say('Ooooo');
-      //     var firstSentance = getSentance(firstSentanceStrings);
-      //     var secondSentance = getSentance(secondSentanceStrings);
-      //     convo.ask(firstSentance + " " + secondSentance, function(response, convo) {
-      //       convo.ask("Vazi, vazi", function(response, convo) {
-      //         convo.stop();
-      //       });
-      //       convo.next();
-      //     });
-      //     convo.on('end', function(convo) {
-      //       var finalSentance = getSentance(finalSentanceStrings);
-      //       bot.reply(context, finalSentance);
-      //     });
-      //   }
-      // });
+      bot start conversation
+      bot.startConversation(context, function(err, convo) {
+        if (!err) {
+          convo.say('Ooooo');
+          var firstSentance = getSentance(firstSentanceStrings);
+          var secondSentance = getSentance(secondSentanceStrings);
+          convo.ask(firstSentance + " " + secondSentance, function(response, convo) {
+            convo.ask("Vazi, vazi", function(response, convo) {
+              convo.stop();
+            });
+            convo.next();
+          });
+          convo.on('end', function(convo) {
+            var finalSentance = getSentance(finalSentanceStrings);
+            bot.reply(context, finalSentance);
+          });
+        }
+      });
     }
   }   
 
@@ -210,7 +210,7 @@ function tomazoCongradulateBirthday() {
   setTimeout(tomazoCongradulateBirthday, 39200);
 };
 
-tomazoCongradulateBirthday();
+// tomazoCongradulateBirthday();
 
 controller.on('rtm_close', function(bot, err) {
   start_rtm();
